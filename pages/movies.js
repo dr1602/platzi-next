@@ -18,33 +18,75 @@ const movies = [
     name: "JourneyRabbit",
     maxTickets: 2,
   },
-  {
-    name: "BluePenter",
-    maxTickets: 3,
-  },
-  {
-    name: "RiverGensMidGame",
-    maxTickets: 5,
-  },
 ];
 
 export default function MoviePage() {
   return (
-    <div>
-        <Link href='/'>
-            Atrás
-        </Link>
+    <>
+      <div className='container'>
 
-        <h2> Películas </h2>
+        <div className='divButton'>
+          <Link href='/'>
+            <p className='backButton'> Atrás </p>
+          </Link>
+        </div>
 
-        {movies.map((movie) => (
-            <Form 
-                key={movie.name} 
-                movie={movie} 
-                available={movie.available} 
-            />
-        ))}
+          <h2 className='title'> Películas </h2>
 
-    </div>
+          {movies.map((movie) => (
+              <Form 
+                  key={movie.name} 
+                  movie={movie} 
+                  available={movie.available} 
+              />
+          ))}
+
+      </div>
+      <style jsx>{`
+      
+      .container {
+        transform: translateY(-3.9vh);
+        display: grid;
+        justify-self: center;
+        height: 100vh;
+        width: 90vw;
+        text: center;
+      }
+      
+      .title {
+        color: white;
+        text-align: center;
+        text-shadow: 3px 3px 6px black;
+      }
+
+      .divButton {
+        transform: translate(3vw, 3vh);
+        display: flex;
+        justify-content: start;
+      }
+
+      .backButton {
+        text-align: center;
+        color: white;
+        background-color: #4781FF;
+        width: 15vh;
+        border-radius: 12px;
+        padding: 3px 0 3px;
+      }
+
+      .backButton {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+      }
+
+      .backButton:hover {
+        color: yellow;
+        transform: scale(1.2);
+      }
+
+
+      `}</style>
+    </>
   );
 }
